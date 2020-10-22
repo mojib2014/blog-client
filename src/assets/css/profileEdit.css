@@ -1,0 +1,19 @@
+.profile-edit-form {
+  overflow: scroll;
+  width: 60%;
+  margin: 0 auto;
+}
+.profile-edit-form h1 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.profile-edit-form button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: lightseagreen;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}

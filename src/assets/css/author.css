@@ -1,0 +1,36 @@
+.column.side {
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+}
+.column.side img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+.column.side p {
+  margin: 5px;
+}
+.follow button {
+  display: block;
+  width: 120px;
+  padding: 10px;
+  margin: 5px auto;
+  text-decoration: none;
+  background-color: lightseagreen;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+.column.side a {
+  text-decoration: none;
+}
+#author-link {
+  color: rgb(41, 40, 40);
+}
+.follow button:hover {
+  color: #fff;
+  background-color: #333;
+}

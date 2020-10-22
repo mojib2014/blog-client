@@ -1,0 +1,63 @@
+#comments-wrapper {
+  width: 60%;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.comments {
+  margin: 20px 0 30px 0;
+}
+.user-avatar {
+  float: left;
+  padding-right: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.comment-container img,
+.comment-container h4,
+.comment-container .createdAt {
+  float: left;
+  padding: 5px;
+  text-align: center;
+}
+.user-avatar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+.comment {
+  clear: both;
+  padding: 10px;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+.delete-btn button {
+  float: right;
+  margin: 10px 0 10px 0;
+  padding: 5px 5px 5px 5px;
+  background-color: lightseagreen;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.delete-btn button:hover {
+  background-color: #555;
+  color: #fff;
+}
+.createdAt {
+  color: #555;
+}
+.vote {
+  padding: 10px;
+}
+.vote .fa {
+  margin: 10px;
+  cursor: pointer;
+}
+#reply {
+  margin: 10px;
+}
+#reply a {
+  text-decoration: none;
+}

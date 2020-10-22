@@ -1,0 +1,35 @@
+#mySidenav {
+  position: relative;
+  padding: 15px;
+}
+#mySidenav a i {
+  position: absolute;
+  left: -60px;
+  transition: 0.3s;
+  padding: 10px;
+  font-size: 40px;
+  width: 70px;
+  border-radius: 0 5px 5px 0;
+}
+#mySidenav i:hover {
+  left: 0;
+}
+#github i {
+  top: 80px;
+  background-color: rgb(201, 201, 201);
+  color: black;
+}
+#linkedin i {
+  top: 20px;
+  background-color: #2196f3;
+}
+#codepen i {
+  top: 140px;
+  background-color: black;
+  color: #fff;
+}
+#code i {
+  top: 200px;
+  background-color: red;
+  color: black;
+}

@@ -1,0 +1,79 @@
+.getstarted-div {
+  overflow: scroll;
+  display: block;
+  width: 40%;
+  height: auto;
+  margin: 0 auto;
+  padding: 30px 5px 5px 5px;
+  text-align: center;
+  background-color: #fff !important;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.getstarted-div h3 {
+  margin: 0 0 20px 0;
+}
+.google-btn button,
+.facebook-btn button {
+  width: 250px;
+  padding: 10px;
+  margin: 20px auto;
+  text-align: center;
+  border: 1px solid rgb(168, 168, 168);
+  background-color: #fff;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.google-btn button:hover,
+.facebook-btn button:hover {
+  background-color: #fff;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+.getstarted-div i {
+  font-size: 20px;
+  padding-right: 20px;
+}
+.facebook-btn i {
+  font-size: 25px;
+}
+.google-btn div svg {
+  margin-left: 30px;
+}
+.account-signin {
+  color: rgba(2, 158, 116, 1);
+  text-decoration: none;
+  margin-left: 5px;
+}
+.already-have-account {
+  width: 250px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.signup-div {
+  width: 250px;
+  border: 1px solid rgb(168, 168, 168);
+  padding: 10px;
+  margin: 20px auto;
+  text-align: center;
+}
+.signup-div a {
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px;
+  text-decoration: none;
+}
+.signup-div:hover {
+  background-color: #fff;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 700px) {
+  .getstarted-div {
+    width: 100%;
+    height: auto;
+  }
+}

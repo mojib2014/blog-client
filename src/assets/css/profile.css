@@ -1,0 +1,62 @@
+.profile-row {
+  overflow: scroll;
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+}
+.profile-row strong {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 10px;
+}
+.column-left {
+  float: left;
+  width: 45%;
+  text-align: justify;
+}
+.column-right {
+  float: right;
+  width: 45%;
+  text-align: end;
+}
+
+.profile-img-div {
+  text-align: right;
+}
+
+.profile-img-div img {
+  width: 130px;
+  height: 130px;
+  border-radius: 65px;
+}
+.edit-profile-btn {
+  clear: both;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: lightseagreen;
+  width: 200px;
+  border-radius: 5px;
+}
+.edit-profile-btn a {
+  color: #fff;
+  text-decoration: none;
+  margin-top: 50px;
+}
+
+.profile-topics {
+  margin-top: 50px;
+}
+
+.profile-topics h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.card-body h5 {
+  font-size: 24px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.card-body p {
+  text-align: left;
+}
