@@ -21,7 +21,7 @@ function getUsers() {
 }
 
 function uploadUserImage(file) {
-  return http.post("/users/upload", file);
+  return http.post("/profile/photo", file);
 }
 
 function updateUser(user) {

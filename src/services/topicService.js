@@ -13,7 +13,7 @@ function createTopic(topic) {
 }
 
 function uploadTopicPhoto(file) {
-  return http.post("/topics/upload", file);
+  return http.post("/topic/photo", file);
 }
 
 function updateTopic(topic) {
