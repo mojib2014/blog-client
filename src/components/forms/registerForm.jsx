@@ -33,14 +33,10 @@ class RegisterForm extends Form {
 
   handlefileUpload = async (e) => {
     e.preventDefault();
+    const file = new FormData();
+    file.append("file", this.state.file);
     try {
-      const file = new FormData();
-      file.append("file", this.state.file);
-      const { data } = await userService.uploadUserImage(file, {
-        headers: {
-          "Conent-type": "multipart/form-data",
-        },
-      });
+      const { data } = await userService.uploadUserImage(file);
       this.setState({
         uploadedFile: {
           filename: data.filename,

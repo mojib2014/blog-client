@@ -12,7 +12,7 @@ function createTopic(topic) {
   return http.post("/topics", topic);
 }
 
-function createFile(file) {
+function uploadTopicPhoto(file) {
   return http.post("/topics/upload", file);
 }
 
@@ -30,6 +30,6 @@ export default {
   getTopics,
   getTopicByAuthor,
   createTopic,
-  createFile,
+  uploadTopicPhoto,
   updateTopic,
 };

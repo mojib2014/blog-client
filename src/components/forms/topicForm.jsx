@@ -20,6 +20,7 @@ class TopicForm extends Form {
     file: null,
     uploadedFile: null,
     filename: "Chose File",
+    user: {},
     errors: {},
   };
 
@@ -62,7 +63,7 @@ class TopicForm extends Form {
     try {
       const file = new FormData();
       file.append("file", this.state.file);
-      const { data } = await topicService.createFile(file, {
+      const { data } = await topicService.uploadTopicPhoto(file, {
         headers: {
           "Conent-type": "multipart/form-data",
         },
@@ -119,7 +120,7 @@ class TopicForm extends Form {
                       "Description",
                       "Please format your comment with markdown.",
                       4,
-                      "text"
+                      "text",
                     )}
                     {this.renderButton("Submit")}
                   </form>

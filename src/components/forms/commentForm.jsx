@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import Form from "../common/form";
 import commentService from "../../services/commentService";
 import auth from "../../services/auth";
+import http from "../../services/httpService";
 
 import "../../assets/css/commentForm.css";
 
@@ -36,6 +37,7 @@ class CommentForm extends Form {
           createdAt: Date.now(),
           topic: topic._id,
         };
+        http.setJwtToken(await auth.getCurrentUser());
         await commentService.createComment(comment);
         toast.info("Successefully posted.");
         window.location = `/${topic.title}/${topic._id}`;

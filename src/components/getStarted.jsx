@@ -32,7 +32,7 @@ class GetStarted extends PureComponent {
       }
     }
 
-    window.location = "/"; 
+    window.location = "/";
   };
 
   onGoogleFail = (res) => {

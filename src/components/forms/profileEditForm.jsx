@@ -60,6 +60,7 @@ class ProfileEditForm extends Form {
     try {
       const file = new FormData();
       file.append("file", this.state.file);
+      console.log(file);
       const { data } = await userService.uploadUserImage(file, {
         headers: {
           "Conent-type": "multipart/form-data",
@@ -73,11 +74,9 @@ class ProfileEditForm extends Form {
       });
       toast.success("Successfuly uploaded");
     } catch (err) {
-      if (err.response && err.response.status === 500) {
+      if (err.response && err.response.status === 500)
         toast.error("Something failed");
-      } else {
-        toast.error(err.response.data.msg);
-      }
+      else toast.error(err.response.data.msg);
     }
   };
 
