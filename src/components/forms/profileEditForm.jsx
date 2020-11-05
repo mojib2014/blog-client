@@ -15,7 +15,7 @@ class ProfileEditForm extends Form {
     data: { name: "", username: "" },
     file: null,
     uploadedFile: null,
-    filename: "Chose File",
+    filename: null,
     errors: {},
   };
 
@@ -46,37 +46,24 @@ class ProfileEditForm extends Form {
     };
   }
 
-  changeHandler = (e) => {
-    e.preventDefault();
+  onFileChange = (e) => {
     this.setState({
       file: e.target.files[0],
+      uploaded: 0,
       filename: e.target.files[0].name,
-      loaded: 0,
     });
   };
 
-  handlefileUpload = async (e) => {
+  onFileUpload = async (e) => {
     e.preventDefault();
     try {
       const file = new FormData();
       file.append("file", this.state.file);
-      console.log(file);
-      const { data } = await userService.uploadUserImage(file, {
-        headers: {
-          "Conent-type": "multipart/form-data",
-        },
-      });
-      this.setState({
-        uploadedFile: {
-          filename: data.filename,
-          filepath: data.filepath,
-        },
-      });
-      toast.success("Successfuly uploaded");
+      const { data } = await userService.uploadUserImage(file, this.props.user);
+      this.setState({ uploadedFile: data.imageUrl });
+      toast.info("Successfully uploaded.");
     } catch (err) {
-      if (err.response && err.response.status === 500)
-        toast.error("Something failed");
-      else toast.error(err.response.data.msg);
+      toast.error(err.message);
     }
   };
 
@@ -87,7 +74,7 @@ class ProfileEditForm extends Form {
       const updated = {
         name: data.name,
         email: data.username,
-        imageUrl: uploadedFile ? uploadedFile.filepath : "",
+        imageUrl: uploadedFile,
         _id: user._id,
         updatedAt: Date.now(),
       };
@@ -108,8 +95,8 @@ class ProfileEditForm extends Form {
           <h1>Profile Edit Form</h1>
           <form>
             <FileInput
-              onChange={this.changeHandler}
-              onClick={this.handlefileUpload}
+              onChange={this.onFileChange}
+              onClick={this.onFileUpload}
               filename={filename}
             />
             {this.renderInput("name", "Name", "name")}

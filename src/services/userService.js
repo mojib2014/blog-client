@@ -20,8 +20,8 @@ function getUsers() {
   return http.get("/users");
 }
 
-function uploadUserImage(file) {
-  return http.post("/profile/photo", file);
+function uploadUserImage(file, user) {
+  return http.put("/profile/upload/" + user._id, file);
 }
 
 function updateUser(user) {

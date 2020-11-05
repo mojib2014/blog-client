@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import "../assets/css/notifications.css";
-
 class Notifications extends Component {
   render() {
     const { followers } = this.props;

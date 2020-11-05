@@ -46,13 +46,16 @@ pre code {
 }
 code {
   line-height: 2rem;
+  color: rgb(216, 150, 26);
+  font-size: 23px;
+  font-weight: 700;
 }
 
 .alert.alert-danger {
   width: 100%;
   padding: 10px;
   color: rgb(235, 65, 65);
-  background-color: rgb(245, 175, 175);
+  background-color: rgb(252, 174, 174);
   margin-bottom: 10px;
   border-radius: 5px;
 }

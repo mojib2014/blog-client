@@ -6,13 +6,14 @@ import Form from "../common/form";
 import FileInput from "../common/fileInput";
 import userService from "../../services/userService";
 import auth from "../../services/auth";
+import topicService from "../../services/topicService";
 
 class RegisterForm extends Form {
   state = {
     data: { name: "", username: "", password: "" },
     file: null,
     uploadedFile: null,
-    filename: "Chose File",
+    filename: null,
     errors: {},
   };
 
@@ -22,34 +23,24 @@ class RegisterForm extends Form {
     password: Joi.string().min(6).max(20).required().label("Password"),
   };
 
-  changeHandler = (e) => {
-    e.preventDefault();
+  onFileChange = (e) => {
     this.setState({
       file: e.target.files[0],
       filename: e.target.files[0].name,
-      loaded: 0,
+      uploaded: 0,
     });
   };
 
-  handlefileUpload = async (e) => {
+  onFileUpload = async (e) => {
     e.preventDefault();
-    const file = new FormData();
-    file.append("file", this.state.file);
     try {
-      const { data } = await userService.uploadUserImage(file);
-      this.setState({
-        uploadedFile: {
-          filename: data.filename,
-          filepath: data.filepath,
-        },
-      });
-      toast.success("Successfuly uploaded");
+      const file = new FormData();
+      file.append("file", this.state.file);
+      const { data } = await topicService.uploadTopicPhoto(file);
+      this.setState({ uploadedFile: data });
+      toast.info("Successfully uploaded.");
     } catch (err) {
-      if (err.response && err.response.status === 500) {
-        toast.error("Something failed");
-      } else {
-        toast.error(err.response.data.msg);
-      }
+      toast.error(err.message);
     }
   };
 
@@ -60,7 +51,7 @@ class RegisterForm extends Form {
       name: user.name,
       username: user.username,
       password: user.password,
-      imageUrl: uploadedFile ? uploadedFile.filepath : "",
+      imageUrl: uploadedFile,
       createdAt: Date.now(),
     };
     try {
@@ -83,11 +74,11 @@ class RegisterForm extends Form {
     const { filename } = this.state;
     return (
       <div className="signup">
-        <h1>Sign up</h1>
+        <h1>Register Form</h1>
         <form>
           <FileInput
-            onChange={this.changeHandler}
-            onClick={this.handlefileUpload}
+            onChange={this.onFileChange}
+            onClick={this.onFileUpload}
             filename={filename}
           />
           {this.renderInput("name", "Name", "name")}

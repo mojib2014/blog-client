@@ -1,12 +1,11 @@
 import React from "react";
 
+import "../assets/css/progressBar.css";
+
 const ProgressBar = () => {
   return (
-    <div class="header">
-      <h2>Scroll Indicator</h2>
-      <div class="progress-container">
-        <div class="progress-bar" id="myBar"></div>
-      </div>
+    <div className="progress-container">
+      <div className="progress-bar" id="myBar"></div>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import topicService from "../services/topicService";
 import UserContext from "../context/userContext";
 import Notification from "./notifications";
 import userService from "../services/userService";
+import ProgressBar from "./progressBar";
 
 import "../assets/css/navbar.css";
 
@@ -74,6 +75,15 @@ class Navbar extends React.Component {
     // await mailService.sendEmail(user);
   };
 
+  handleToggle() {
+    const x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+
   componentWillUnmount() {
     window.removeEventListener("scroll", window);
   }
@@ -84,10 +94,11 @@ class Navbar extends React.Component {
     return (
       <UserContext.Consumer>
         {(user) => (
-          <div className={this.state.scrolled ? "topnav sticky" : "topnav"}>
-            <NavLink className="navbar-brand" to="/topics">
-              Mojib
-            </NavLink>
+          <div
+            id="myTopnav"
+            className={this.state.scrolled ? "topnav sticky" : "topnav"}
+          >
+            <NavLink to="/topics">Mojib</NavLink>
             <NavLink to="/subscribe" onClick={this.handleSubscription}>
               Subscribe
             </NavLink>
@@ -95,17 +106,9 @@ class Navbar extends React.Component {
             {!user && <NavLink to="/login">Sign in</NavLink>}
             {!user && <NavLink to="/getstarted">Get Started</NavLink>}
             {user && (
-              <NavLink to="/profile">
+              <NavLink id="avatar-anchor" to="/profile">
                 {user.imageUrl ? (
-                  <img
-                    style={{
-                      width: "25px",
-                      height: "25px",
-                      borderRadius: "50%",
-                    }}
-                    src={user.imageUrl}
-                    alt="user avatar"
-                  />
+                  <img src={user.imageUrl} alt="user avatar" />
                 ) : (
                   <i
                     className="fa fa-user-circle"
@@ -115,6 +118,7 @@ class Navbar extends React.Component {
               </NavLink>
             )}
             {user && <NavLink to="/logout">Logout</NavLink>}
+            <Notification followers={followers} user={user} />
             <div className="search-container">
               <input
                 name="search"
@@ -124,10 +128,15 @@ class Navbar extends React.Component {
                 onChange={(e) => onChange(e)}
               />
             </div>
-            <Notification followers={followers} user={user} />
-            <div className="progress-container">
-              <div className="progress-bar" id="myBar"></div>
-            </div>
+            <a
+              href="#"
+              style={{ fontSize: "20px" }}
+              className="icon"
+              onClick={this.handleToggle}
+            >
+              &#9776;
+            </a>
+            <ProgressBar />
           </div>
         )}
       </UserContext.Consumer>

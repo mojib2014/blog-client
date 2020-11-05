@@ -83,12 +83,11 @@ class Form extends Component {
 
   renderButton(label) {
     return (
-      <button
-        className={this.validate() ? "disabled" : "register-btn"}
-        onClick={this.handleSubmit}
-      >
-        {label}
-      </button>
+      <div className="button-div">
+        <button disabled={this.validate()} onClick={this.handleSubmit}>
+          {label}
+        </button>
+      </div>
     );
   }
 }

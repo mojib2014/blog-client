@@ -8,17 +8,22 @@ const FileInput = ({ filename, onChange, onClick }) => {
     <div className="file-upload-div">
       <div className="custom-file">
         <input
-          name={filename}
           onChange={onChange}
+          name={filename}
           type="file"
           className="custom-file-input"
           id="customFile"
+          placeholder="Chose an image"
         />
         <label className="custom-file-label" htmlFor="customFile">
           {filename}
         </label>
       </div>
-      <input onClick={onClick} type="submit" value="Upload" />
+      <div className="button-div">
+        <button disabled={!filename} onClick={onClick}>
+          Upload
+        </button>
+      </div>
     </div>
   );
 };

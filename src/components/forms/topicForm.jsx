@@ -19,7 +19,7 @@ class TopicForm extends Form {
     data: { title: "", description: "" },
     file: null,
     uploadedFile: null,
-    filename: "Chose File",
+    filename: null,
     user: {},
     errors: {},
   };
@@ -49,38 +49,24 @@ class TopicForm extends Form {
     window.location = "/topics";
   };
 
-  changeHandler = (e) => {
-    e.preventDefault();
+  onFileChange = (e) => {
     this.setState({
       file: e.target.files[0],
       filename: e.target.files[0].name,
-      loaded: 0,
+      uploaded: 0,
     });
   };
 
-  handlefileUpload = async (e) => {
+  onFileUpload = async (e) => {
     e.preventDefault();
     try {
       const file = new FormData();
       file.append("file", this.state.file);
-      const { data } = await topicService.uploadTopicPhoto(file, {
-        headers: {
-          "Conent-type": "multipart/form-data",
-        },
-      });
-      this.setState({
-        uploadedFile: {
-          filename: data.filename,
-          filepath: data.filepath,
-        },
-      });
-      toast.success("Successfuly uploaded");
+      const { data } = await topicService.uploadTopicPhoto(file);
+      this.setState({ uploadedFile: data });
+      toast.info("Successfully uploaded.");
     } catch (err) {
-      if (err.response && err.response.status === 500) {
-        toast.error("Something failed");
-      } else {
-        toast.error(err.response.data.msg);
-      }
+      toast.error(err.message);
     }
   };
 
@@ -97,8 +83,8 @@ class TopicForm extends Form {
                   <h1>Topic Form</h1>
                   <form onSubmit={this.handleSubmit}>
                     <FileInput
-                      onClick={this.handlefileUpload}
-                      onChange={this.changeHandler}
+                      onChange={this.onFileChange}
+                      onClick={this.onFileUpload}
                       filename={filename}
                     />
                     {this.renderInput("title", "Title", "text")}
