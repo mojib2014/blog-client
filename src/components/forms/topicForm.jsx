@@ -49,7 +49,7 @@ class TopicForm extends Form {
     } catch (err) {
       toast.error(err.response.data);
     }
-    // window.location = "/topics";
+    window.location = "/topics";
   };
 
   onFileChange = (e) => {
