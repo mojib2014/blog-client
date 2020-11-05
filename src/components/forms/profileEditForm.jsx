@@ -80,6 +80,7 @@ class ProfileEditForm extends Form {
       };
       try {
         await userService.updateUser(updated);
+        toast.info("Successfully updated.");
         window.location = "/topics";
       } catch (err) {
         console.log(err);

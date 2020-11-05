@@ -58,6 +58,7 @@ class RegisterForm extends Form {
       const response = await userService.registerUser(user);
 
       auth.loginWithJwt(response.headers["x-auth-token"]);
+      toast.info("Successfully registered.");
       window.location = "/";
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {

@@ -45,10 +45,11 @@ class TopicForm extends Form {
       http.setJwtToken(auth.getJwt());
       await userService.updateUser(user);
       await topicService.createTopic(topic);
+      toast.info("successfully posted.");
     } catch (err) {
       toast.error(err.response.data);
     }
-    window.location = "/topics";
+    // window.location = "/topics";
   };
 
   onFileChange = (e) => {
