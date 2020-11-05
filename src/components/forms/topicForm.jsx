@@ -10,6 +10,7 @@ import FileInput from "../common/fileInput";
 import topicService from "../../services/topicService";
 import UserContext from "../../context/userContext";
 import userService from "../../services/userService";
+import http from "../../services/httpService";
 import SocialIcons from "../socialIcon";
 
 import "../../assets/css/topicForm.css";
@@ -35,16 +36,17 @@ class TopicForm extends Form {
     const topic = {
       title: data.title,
       description: data.description,
-      imageUrl: uploadedFile.filepath,
+      imageUrl: uploadedFile,
       author: user._id,
       createdAt: Date.now(),
     };
     try {
       user.publications++;
+      http.setJwtToken(auth.getJwt());
       await userService.updateUser(user);
       await topicService.createTopic(topic);
     } catch (err) {
-      toast.info(err.response.data);
+      toast.error(err.response.data);
     }
     window.location = "/topics";
   };
