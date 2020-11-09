@@ -1,9 +1,9 @@
 .signin {
-  overflow: scroll;
   width: 60%;
   margin: 0 auto;
 }
 .signin h1 {
   margin-bottom: 20px;
+  margin-top: 20px;
   text-align: center;
 }

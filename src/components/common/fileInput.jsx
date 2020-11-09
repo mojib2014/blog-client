@@ -5,7 +5,7 @@ import "../../assets/css/fileinput.css";
 
 const FileInput = ({ filename, onChange, onClick }) => {
   return (
-    <div className="file-upload-div">
+    <div className="file-upload-container">
       <div className="custom-file">
         <input
           onChange={onChange}

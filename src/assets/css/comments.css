@@ -61,3 +61,10 @@
 #reply a {
   text-decoration: none;
 }
+
+@media screen and (max-width: 650px) {
+  #comments-wrapper {
+    width: 100%;
+    padding: 5px;
+  }
+}

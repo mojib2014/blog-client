@@ -14,7 +14,7 @@ const Like = ({ item, onLike }) => {
   };
 
   return (
-    <div className="likes column side">
+    <div className="like-grid-item">
       <div className="like-icon-div">
         <i
           style={{ cursor: "pointer", fontSize: "40px" }}

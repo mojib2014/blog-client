@@ -1,5 +1,4 @@
-.topic-div {
-  overflow: scroll;
+.topic-container {
   display: block;
   text-align: center;
 }

@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import followingService from "../services/followingService";
-import SocialIcons from "./socialIcon";
 
 import "../assets/css/author.css";
 
@@ -40,8 +39,7 @@ class Author extends Component {
       <>
         {author ? (
           <>
-            <SocialIcons />
-            <div className="column side">
+            <div className="author-grid-item author">
               <NavLink to={`/author-profile/${author._id}`} id="author-link">
                 <img src={author.imageUrl} alt="author avatar" />
                 <p style={{ marginBottom: "3px" }}>{author.name}</p>
@@ -62,7 +60,7 @@ class Author extends Component {
                   author.following ? author.following.length : 0
                 }`}</p>
               </NavLink>
-              <div className="follow">
+              <div className="follow-btn">
                 <button onClick={() => this.handleFollow(author)}>
                   {author.isFollowing === true ? "Unfollow" : "Follow"}
                 </button>

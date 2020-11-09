@@ -30,8 +30,8 @@ const Profile = () => {
             <div className="profile-div">
               {user && (
                 <>
-                  <div className="profile-row">
-                    <div className="column-left">
+                  <div className="profile-grid-container">
+                    <div className="profile-grid-item">
                       <p>
                         <strong>Full Name: </strong> {user.name}
                       </p>
@@ -52,7 +52,7 @@ const Profile = () => {
                         {moment(Date.parse(user.updatedAt)).fromNow()}
                       </p>
                     </div>
-                    <div className="column-right profile-img-div">
+                    <div className="profile-img-grid-item">
                       {user.imageUrl ? (
                         <img src={user.imageUrl} alt="user avatar" />
                       ) : (
@@ -65,16 +65,16 @@ const Profile = () => {
                   </div>
                   <div
                     style={{ cursor: "pointer" }}
-                    className="edit-profile-btn"
+                    className="profile-edit-btn"
                   >
                     <NavLink to={`/users/${user._id}`}>Edit Profile</NavLink>
                   </div>
-                  <div className="row topic-list-row profile-topics">
-                    <h2>Your Publications</h2>
+                  <h2>Your Publications</h2>
+                  <div className="grid-container">
                     {topics
                       .filter((topic) => topic.author._id === user._id)
                       .map((topic) => (
-                        <div key={topic._id} className="topic-list-column">
+                        <div key={topic._id} className="grid-item">
                           <Link
                             to={
                               user
@@ -83,7 +83,7 @@ const Profile = () => {
                             }
                           >
                             <div className="card">
-                              <div className="card-img-div">
+                              <div className="card-img-container">
                                 <img
                                   src={topic.imageUrl}
                                   alt="programming avatar"

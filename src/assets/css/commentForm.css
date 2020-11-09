@@ -1,10 +1,11 @@
-.comment-form-div {
+.comment-form-container {
   width: 60%;
   margin: 0 auto;
 }
-.comment-form-div button {
-  width: 100px;
-}
-.comment-form-div p {
-  margin: 0 auto;
+
+@media screen and (max-width: 650px) {
+  .comment-form-container {
+    width: 100%;
+    padding: 5px;
+  }
 }

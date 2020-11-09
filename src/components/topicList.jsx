@@ -17,18 +17,20 @@ const TopicList = ({ items, user, searchQuery }) => {
   return (
     <>
       <SocialIcons />
-      <div className="row topic-list-row">
+      <div className="grid-container topic-list">
         {filtered.map((item) => {
           return (
-            <div key={item._id} className="topic-list-column">
+            <div key={item._id} className="grid-item">
               <div className="card">
                 <NavLink
                   key={item._id}
                   to={user ? `/${item.title}/${item._id}` : "/getstarted"}
                 >
-                  <div className="card-img-div">
-                    <img src={item.imageUrl} alt="programming avatar" />
-                  </div>
+                  <img
+                    style={{ width: "100%" }}
+                    src={item.imageUrl}
+                    alt="programming avatar"
+                  />
                 </NavLink>
                 <div className="card-body">
                   <h3 className="card-title">{item.title}</h3>
@@ -36,7 +38,7 @@ const TopicList = ({ items, user, searchQuery }) => {
                     className="card-text"
                     source={`${item.description
                       .split("")
-                      .splice(0, 40)
+                      .splice(0, 90)
                       .join("")}...`}
                   />
                 </div>

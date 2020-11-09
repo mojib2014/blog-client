@@ -32,7 +32,7 @@ class Topics extends Component {
     const { topics } = this.state;
     const { user, searchQuery } = this.props;
     return (
-      <div className="topic-div">
+      <div className="topic-container">
         <h1 id="topics-heading">Dive on topics that matter to you.</h1>
         <TopicList searchQuery={searchQuery} user={user} items={topics} />
         {!user && (

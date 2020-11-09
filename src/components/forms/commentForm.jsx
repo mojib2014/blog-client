@@ -53,7 +53,7 @@ class CommentForm extends Form {
   };
   render() {
     return (
-      <div className="comment-form-div">
+      <div className="comment-form-container">
         {this.renderTextArea(
           "comment",
           "Comment",

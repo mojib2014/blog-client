@@ -1,33 +1,39 @@
 /* General styles */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
+  font-family: sans-serif;
+  font-style: normal;
   background-color: #fff;
 }
+
 h1 {
   font-size: 40px;
   font-weight: 800;
 }
+
 h2 {
   font-size: 35px;
   font-weight: 600;
   margin: 10px 0 10px 0;
 }
+
 h3 {
   font-size: 30px;
   font-weight: 400;
 }
+
 h4 {
   font-size: 25px;
   font-weight: 300;
 }
+
 p {
   font-size: 16px;
   font-weight: 400;
   line-height: 30px;
   margin: 5px 0 5px 0;
 }
+
+/* Markdown styles  */
 pre {
   background: rgb(40, 44, 52);
   color: rgb(255, 255, 255);
@@ -36,6 +42,11 @@ pre {
   tab-size: 1.5em;
   padding: 10px;
 }
+
+.markdown-description p {
+  text-align: left;
+}
+
 pre code {
   margin: 1rem;
   font-size: 14px;
@@ -44,6 +55,7 @@ pre code {
   word-break: break-word;
   height: auto !important;
 }
+
 code {
   line-height: 2rem;
   color: rgb(216, 150, 26);
@@ -51,6 +63,7 @@ code {
   font-weight: 700;
 }
 
+/* Input and Form styles */
 .alert.alert-danger {
   width: 100%;
   padding: 10px;
@@ -60,94 +73,47 @@ code {
   border-radius: 5px;
 }
 
-/*-----------
-  Footer 
--------------*/
-.footer {
-  position: relative;
-  width: 100% !important;
-  bottom: 0;
-  left: 0;
-  height: 100px;
-  background-color: #333;
-  margin: 40px 0 0 0 !important;
-}
-.footer-div {
-  width: 65%;
+button {
+  min-width: 20%;
+  height: calc(2.25rem + 2px);
   margin: 0 auto;
-}
-.logo a {
-  float: left;
-  text-decoration: none;
-  color: rgb(128, 126, 126);
-  margin: 0 auto;
-  padding: 35px;
-  text-align: center;
-}
-.footer a:hover {
-  text-decoration: none;
+  background-color: lightseagreen;
+  border: none;
+  border-radius: 5px;
   color: #fff;
+  font-size: 18px;
+  cursor: pointer;
 }
-.footer ul {
-  margin: 0 auto;
-  text-align: center;
-  padding: 20px;
+
+button:disabled {
+  background-color: rgb(168, 237, 233);
+  color: #666666;
+  cursor: auto;
 }
-.footer ul li {
+
+.form-control {
   display: block;
-  float: right;
-  padding: 14px 16px;
-  margin: 0 auto;
-  text-align: center;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 10px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.footer ul li a {
-  color: rgb(128, 126, 126);
-  text-decoration: none;
-  margin: 0 auto;
-  text-align: center;
-}
-/*--------------
- Media Queries
----------------*/
-@media only screen and (max-width: 500px) {
-  #footer {
-    width: 100% !important;
+
+@media screen and (max-width: 650px) {
+  h1 {
+    font-size: 20px;
+    font-weight: normal;
   }
-}
-@media only screen and (max-width: 900px) {
-  .card {
-    margin: 0 auto;
-  }
-  .jumbotron {
-    padding: 10px;
-  }
-  .logo {
-    display: flex;
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .logo a {
-    text-decoration: none !important;
-    color: #555;
-    padding: 5px;
-  }
-  .author-wrapper {
-    margin-bottom: 30px;
-  }
-  .footer {
-    width: 100% !important;
-    height: auto;
-  }
-  .footer-links {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .footer-links ul li {
-    float: none;
-  }
-  .footer ul {
-    padding: 10px;
+
+  p {
+    font-size: 14px;
+    font-weight: normal;
   }
 }

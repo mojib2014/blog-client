@@ -45,22 +45,7 @@
   border-left: 1px solid #ced4da;
   border-radius: 0 0.25rem 0.25rem 0;
 }
-button {
-  width: 20%;
-  height: calc(2.25rem + 2px);
-  margin: 0 auto;
-  background-color: lightseagreen;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 18px;
-  cursor: pointer;
-}
-button:disabled {
-  background-color: rgb(168, 237, 233);
-  color: #666666;
-  cursor: auto;
-}
+
 textarea[type="text"] {
   color: #333;
 }

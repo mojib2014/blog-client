@@ -3,8 +3,6 @@ import { NavLink } from "react-router-dom";
 
 import topicService from "../../services/topicService";
 
-import "../../assets/css/authorTopics.css";
-
 const AuthorTopics = ({ match }) => {
   const [topics, setTopics] = useState([]);
 
@@ -23,32 +21,24 @@ const AuthorTopics = ({ match }) => {
 
   const authorTopics = getAuthorTopics();
   return (
-    <div className="row authorTopics">
+    <div className="grid-container">
       {authorTopics.map((topic) => {
         return (
-          <NavLink key={topic._id} to={`/${topic.title}/${topic._id}`}>
-            <div
-              key={topic._id}
-              style={{ cursor: "pointer" }}
-              className="column"
-            >
-              <div className="card">
-                <div className="card-img-div">
-                  <img
-                    src={topic.imageUrl}
-                    className="card-img-top"
-                    alt="coding avatar"
-                  />
+          <div key={topic._id} className="grid-item">
+            <div className="card">
+              <NavLink key={topic._id} to={`/${topic.title}/${topic._id}`}>
+                <div className="card-img-container">
+                  <img src={topic.imageUrl} alt="coding avatar" />
                 </div>
                 <div className="card-body">
                   <h5 className="card-title">{topic.title}</h5>
                   <p className="card-text">
-                    {`${topic.description.split("").splice(0, 50).join("")}...`}
+                    {`${topic.description.split("").splice(0, 90).join("")}...`}
                   </p>
                 </div>
-              </div>
+              </NavLink>
             </div>
-          </NavLink>
+          </div>
         );
       })}
     </div>

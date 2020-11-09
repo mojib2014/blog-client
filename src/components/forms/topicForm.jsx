@@ -46,10 +46,10 @@ class TopicForm extends Form {
       await userService.updateUser(user);
       await topicService.createTopic(topic);
       toast.info("successfully posted.");
+      window.location = "/topics";
     } catch (err) {
       toast.error(err.response.data);
     }
-    window.location = "/topics";
   };
 
   onFileChange = (e) => {
@@ -82,7 +82,7 @@ class TopicForm extends Form {
           {(user) =>
             user && (
               <>
-                <div className="topic-form-div">
+                <div className="topic-form-container">
                   <h1>Topic Form</h1>
                   <form onSubmit={this.handleSubmit}>
                     <FileInput

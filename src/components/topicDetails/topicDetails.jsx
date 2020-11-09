@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
 import { toast } from "react-toastify";
+import ReactMarkdown from "react-markdown";
 import PropTypes from "prop-types";
 
 import Author from "../author";
+import auth from "../../services/auth";
 import Footer from "../footer";
 import Like from "../like";
 import topicService from "../../services/topicService";
 import CommentForm from "../forms/commentForm";
 import Comments from "../comments";
+import httpService from "../../services/httpService";
 
 import "../../assets/css/topicDetails.css";
-import httpService from "../../services/httpService";
-import auth from "../../services/auth";
 
 class TopicDetails extends Component {
   state = {
@@ -85,19 +85,17 @@ class TopicDetails extends Component {
       <>
         {item ? (
           <>
-            <div className="row topic-detail-row">
+            <div className="topic-detail-grid-container">
               <Author item={item} user={this.props.user} />
-              <div className="column middle">
-                <div className="topic-description">
-                  <h1>{item.title}</h1>
-                  <div className="topic-img-container">
-                    <img src={item.imageUrl} alt={`${item.title} avatar`} />
-                  </div>
-                  <ReactMarkdown
-                    className="markdown-description"
-                    source={item.description}
-                  />
+              <div className="topic-grid-item">
+                <h1>{item.title}</h1>
+                <div className="topic-img-container">
+                  <img src={item.imageUrl} alt={`${item.title} avatar`} />
                 </div>
+                <ReactMarkdown
+                  className="markdown-description"
+                  source={item.description}
+                />
               </div>
               <Like
                 item={item}

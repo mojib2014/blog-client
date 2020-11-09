@@ -53,8 +53,8 @@ class AuthorProfile extends Component {
       topic.author._id === followerId
         ? (author = topic.author)
         : users.filter((user) =>
-            user._id === followerId ? (author = user) : null
-          )
+            user._id === followerId ? (author = user) : null,
+          ),
     );
     return author;
   }
@@ -75,8 +75,8 @@ class AuthorProfile extends Component {
 
         <div className="profile-div">
           {author && (
-            <div className="profile-row">
-              <div className="column-left">
+            <div className="profile-grid-container">
+              <div className="profile-grid-item">
                 <p>
                   <strong>Full Name: </strong> {author.name}
                 </p>
@@ -96,7 +96,7 @@ class AuthorProfile extends Component {
                   {author.following ? author.following.length : 0}
                 </p>
               </div>
-              <div className="column-right profile-img-div">
+              <div className="profile-img-grid-item">
                 {author.imageUrl ? (
                   <img src={author.imageUrl} alt="user avatar" />
                 ) : (
@@ -108,20 +108,26 @@ class AuthorProfile extends Component {
               </div>
             </div>
           )}
-          <div className="row topic-list-row profile-topics">
-            <h2>{`${author && author.name}'s`} Publications</h2>
+          <h2 id="author-profile-h2">
+            {`${author && author.name}'s`} Publications
+          </h2>
+          <div className="grid-container profile-topics">
             {authorTopics
               ? authorTopics.map((topic) => (
-                  <div key={topic._id} className="topic-list-column">
-                    <NavLink
-                      to={
-                        author ? `/${topic.title}/${topic._id}` : "/getstarted"
-                      }
-                    >
-                      <div className="card">
-                        <div className="card-img-div">
-                          <img src={topic.imageUrl} alt="programming avatar" />
-                        </div>
+                  <div key={topic._id} className="grid-item">
+                    <div className="card">
+                      <NavLink
+                        to={
+                          author
+                            ? `/${topic.title}/${topic._id}`
+                            : "/getstarted"
+                        }
+                      >
+                        <img
+                          style={{ width: "100%" }}
+                          src={topic.imageUrl}
+                          alt="programming avatar"
+                        />
                         <div className="card-body">
                           <h5 className="card-title">{topic.title}</h5>
                           <p className="card-text">
@@ -131,8 +137,8 @@ class AuthorProfile extends Component {
                               .join("")}...`}
                           </p>
                         </div>
-                      </div>
-                    </NavLink>
+                      </NavLink>
+                    </div>
                   </div>
                 ))
               : "This user haven't publish yet!"}
