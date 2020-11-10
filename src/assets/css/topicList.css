@@ -1,23 +1,30 @@
 /* Grid styles for topic list and author topics */
 .grid-container {
+  width: 100%;
   display: grid;
-  grid-column-gap: 20px;
+  grid-column-gap: 10px;
   grid-template-columns: auto auto auto;
   padding: 10px;
   justify-content: space-evenly;
 }
 
 .grid-item {
-  padding: 20px;
+  padding: 10px;
   text-align: center;
 }
 
 .card {
   max-width: 300px;
-  max-height: 350px;
+  max-height: 320px;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   overflow: hidden;
+}
+
+.card-body {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
 }
 
 .card-img-container img {
@@ -29,11 +36,7 @@
   border-top-left-radius: 10px;
   overflow: hidden;
 }
-.card-body {
-  width: 300px;
-  height: 200px;
-  padding: 10px;
-}
+
 .grid-container a {
   text-decoration: none;
   color: #333;
@@ -51,7 +54,7 @@
  Media Queries
 ---------------*/
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .grid-container {
     grid-template-columns: auto auto;
     justify-content: space-evenly;
@@ -60,6 +63,11 @@
   .grid-item {
     width: 100%;
     height: auto;
+  }
+
+  .card {
+    width: 330px;
+    height: 360px;
   }
 }
 
